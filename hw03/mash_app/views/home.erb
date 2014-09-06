@@ -1,0 +1,16 @@
+<h1>Welcome to the Mash APP</h1>
+
+<form action ='/sort' method='get'>
+Which Feed Which you like to read? 
+
+<select name="feed">
+  <% @stories.each do |key, value| %>
+       <% if value != nil %>
+        <option value="<%=key%>"><%=key%></option>
+        <%end %>
+  <%end %>
+</select>
+
+<input type='submit' value='Next'>
+</form>
+
