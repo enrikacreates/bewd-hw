@@ -1,0 +1,24 @@
+<!-- params.inspect  -->
+<link rel="stylesheet" type="text/css" href="/main.css">
+<h1> Articles sorted by <span class='yo'>"<%=@sorter.upcase!%>"</span></h1>
+
+<h2>Sort by:</h2>
+<form id='yoman' action='/results' method='get'>
+<button type='submit' name='sorter' value='title' form='yoman'>by Title</button>
+<button type='submit' name='sorter' value='author' form='yoman'>by Author</button>
+<button type='submit' name='sorter' value='date' form='yoman'>by Date</button>
+<input type='hidden' name="feed" value="<%= @feed_pick %>">
+</form>
+
+
+<!-- Start to run through articles array with for each loop -->
+<% @sorted_articles.each do |article| %> 
+  
+ 
+  <h3><%=  article['title'] %></h3>
+  <h4>By <%=  article['author'] %></h4>
+  <%= article['post_date_rfc'] %><br>
+  <a href="<%= article['link'] %>"><%= article['link'] %></a><br>
+  
+  <br><br>
+<% end %>
